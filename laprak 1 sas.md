@@ -13,7 +13,7 @@
 
  - Mengecek LXC, lalu rename ubuntu_php5.6 menjadi ubuntu_landing 
 
-```
+```markdown
 sudo lxc -ls -f
 sudo lxc-copy -R ubuntu_php5.6 -N ubuntu_landing
 ```
@@ -26,13 +26,13 @@ sudo lxc-copy -R ubuntu_php5.6 -N ubuntu_landing
 
  - Set up static IP pada ubuntu_landing
 
-```
+```markdown
 sudo nano /etc/network/interfaces
 ```
 
 ![1.2](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\1.2.PNG)
 
-```
+```markdown
 reboot
 ifconfig
 ```
@@ -43,7 +43,7 @@ ifconfig
 
  - Install LXC debian 9
 
-```
+```markdown
 sudo lxc-create -n debian_php5.6 -t download -- -- dist debian --release stretch --arch amd64 --force-chace --no-validate --server images.linuxcontainers.org
 ```
 
@@ -51,9 +51,11 @@ sudo lxc-create -n debian_php5.6 -t download -- -- dist debian --release stretch
 
 ###### 3. Setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev ,buat halaman index.html yang menerangkan informasi nama lxc
 
-	- Start debian_php5.6
-
+```markdown
+- Start debian_php5.6
 ```
+
+```markdown
 sudo lcx-start debian_php5.6
 sudo lxc-attach debian_php5.6
 apt install nano net-tools curl
@@ -61,30 +63,34 @@ apt install nano net-tools curl
 
 ![3](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.PNG)
 
-	- Set up static IP 
-
+```markdown
+- Set up static IP 
 ```
+
+```markdown
 nano /etc/network/interfaces
 ```
 
 ![3.3](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.3.PNG)
 
-```
+```markdown
 reboot
 ifconfig
 ```
 
 ![3.4](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.4.PNG)
 
-	- Setting nginx 
-
+```markdown
+- Setting nginx 
 ```
+
+```markdown
 sudo apt install nginx nginx-extras
 ```
 
 ![3.5](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.5.PNG)
 
-```
+```markdown
 cd /etc/nginx/sites-available
 touch lxc_php5.6.dev
 nano lxc_php5.6.dev
@@ -92,7 +98,7 @@ nano lxc_php5.6.dev
 
 ![3.6](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.6.PNG)
 
-```
+```markdown
 cd ../sites-enable
 ln -s /etc/nginx/sites-available/lxc_php5.6.dev .
 nginx -t
@@ -102,7 +108,7 @@ nano /etc/hosts
 
 ![3.2](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.2.PNG)
 
-```
+```markdown
 cd /var/www/html
 mkdir lxc_php5.6
 cp index.nginx-debian.html lxc_php5.6/index.html
@@ -112,7 +118,7 @@ nano index.html
 
 ![3.1](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\3.1.PNG)
 
-```
+```markdown
 curl -i http://lxc_php5.dev 
 ```
 
@@ -120,7 +126,7 @@ curl -i http://lxc_php5.dev
 
  - Setting nginx ubuntu_landing
 
-```
+```markdown
 cd /etc/nginx/sites-available
 touch lxc_php5.6.dev
 nano lxc_php5.6.dev
@@ -128,7 +134,7 @@ nano lxc_php5.6.dev
 
 ![4](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\4.PNG)
 
-```
+```markdown
 cd ../sites-enable
 ln -s /etc/nginx/sites-available/lxc_php5.6.dev .
 nginx -t
@@ -138,7 +144,7 @@ nano /etc/hosts
 
 ![4.1](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\4.1.PNG)
 
-```
+```markdown
 cd /var/www/html
 nano index.html
 ```
@@ -153,7 +159,7 @@ curl -i http://lxc_php5.dev
 
  - Auto start ubuntu_landing
 
-```
+```markdown
 sudo su 
 echo "lxc.start.auto = 1" >> /var/lib/lxc/ubuntu_landing/config
 lxc-stop ubuntu_landing
@@ -174,7 +180,7 @@ lxc-ls -f
 
     - Setting hosts vm
 
-    ```
+    ```markdown
     sudo nano /etc/hosts
     ```
 
@@ -182,33 +188,39 @@ lxc-ls -f
 
     - Setting nginx vm
 
-    ```
+    ```markdown
     cd /etc/nginx/sites-available
     sudo nano vm.local
     ```
     
+
 ![6.1](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\6.1.PNG)
-    
+```markdown
+sudo ln -s /etc/nginx/sites-available/vm.local .
+sudo nginx -t
+sudo nginx -s reload
+curl -i http://vm.local
 ```
-    sudo ln -s /etc/nginx/sites-available/vm.local .
-    sudo nginx -t
-    sudo nginx -s reload
-    curl -i http://vm.local
-    ```
-    
+
 ![6.3](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\6.3.PNG)
 
-###### 7.untuk kebutuhan presentasi mereka,broswer di laptop mereka harus dapat mengakses ketiga url tersebut
+###### 7. untuk kebutuhan presentasi mereka,broswer di laptop mereka harus dapat mengakses ketiga url tersebut
 
-	- mengakses http://vm.local
+```markdown
+- mengakses http://vm.local
+```
 
 ![browser 1](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\browser 1.PNG)
 
-	- mengakses http://vm.local/blog
+```markdown
+- mengakses http://vm.local/blog
+```
 
 ![blog](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\blog.PNG)
 
-	- mengakses http://vm.local/app
+```markdown
+- mengakses http://vm.local/app
+```
 
 ![app](C:\Users\owner\Downloads\SAS-20211021T124156Z-001\SAS\app.PNG)
 
