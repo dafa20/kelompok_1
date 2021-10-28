@@ -48,7 +48,6 @@ sudo lxc-create -n debian_php5.6 -t download -- -- dist debian --release stretch
 ###### 3. Setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev ,buat halaman index.html yang menerangkan informasi nama lxc
 
 - Start debian_php5.6
-```
 
 ```markdown
 sudo lcx-start debian_php5.6
@@ -59,7 +58,7 @@ apt install nano net-tools curl
 ![3](https://user-images.githubusercontent.com/93079538/138592527-823a8bec-d892-4129-9f62-f4f981a20f8b.PNG)
 
 - Set up static IP 
-```
+
 
 ```markdown
 nano /etc/network/interfaces
@@ -75,7 +74,6 @@ ifconfig
 ![3 4](https://user-images.githubusercontent.com/93079538/138592523-46aa615e-58b4-4e5e-a378-432c348173db.PNG)
 
 - Setting nginx 
-```
 
 ```markdown
 sudo apt install nginx nginx-extras
