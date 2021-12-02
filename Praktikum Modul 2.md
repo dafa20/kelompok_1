@@ -198,3 +198,96 @@
       
       ![akhir2](https://user-images.githubusercontent.com/93079538/144324226-5a351c6a-b9f6-4f86-a14e-ab49062440af.png)
    - wordpress sudah dapat dijalankan
+
+
+5. #### Soal tambahan rubah konfigurasi php7.4 yang semula menggunakan socket menjadi menggunakan port ( 127.0.0.1:9001 ) => kalo bisa edit di ansible
+
+   - LARAVEL
+
+     - masuk ke direktori laravel
+
+     ```
+     cd ~/ansible/laravel
+     ```
+
+     - setting konfigurasi pada lxc_landing.dev
+
+     ```
+     nano lxc_landing.dev
+     ```
+
+     ![1](https://user-images.githubusercontent.com/93079538/144434847-db6708dd-dce6-416d-83e6-32750e0b4bd1.png)
+
+     
+
+     - buat file baru dengan nama apa saja pada direktori laravel
+
+     ```markdown
+     nano tambahan.yml
+     ```
+
+     ![2](https://user-images.githubusercontent.com/93079538/144434962-52dca228-9f84-477d-af4c-0b7742581f6f.png)
+
+     
+
+     - lakukan instalasi ulang
+
+     ```markdown
+     ansible-playbook -i hosts tambahan.yml -k
+     ```
+
+     ![3](https://user-images.githubusercontent.com/93079538/144434992-1a6da6e2-9260-439f-bc35-3bdff8d59c40.png)
+
+     
+
+     - cek vm.local/ pada browser
+
+     ![4](https://user-images.githubusercontent.com/93079538/144435009-3f59a831-3c02-4eb6-a5bf-f6216deb3135.png)
+
+     
+
+   - WORDPRESS
+
+     - masuk pada direktori wordpress
+
+     ```markdown
+     cd ~/ansible/wordpress
+     ```
+
+     - setting konfigurasi pada wordpress.conf
+
+     ```markdown
+     nano wordpress.conf
+     ```
+
+     ![5](https://user-images.githubusercontent.com/93079538/144435069-af12b88e-4da6-4f2c-93f3-829545e4b061.png)
+
+     
+
+     - buat file baru dengan nama apa saja pada direktori wordpress
+
+     ```markdown
+     nano tambahan.yml
+     ```
+
+     ![6](https://user-images.githubusercontent.com/93079538/144435107-5acba892-d6ab-43b8-a0fb-087b2bbb03d9.png)
+
+     
+
+     - lakukan instalasi ulang
+
+     ```markdown
+     ansible-playbook -i hosts tambahan.yml -k
+     ```
+
+     ![7](https://user-images.githubusercontent.com/93079538/144435138-dbc711fb-f9c1-4038-b72e-1657e716b8a4.png)
+
+     
+
+     - cek vm.local/blog pada browser
+
+     ![8](https://user-images.githubusercontent.com/93079538/144435163-1be85762-184c-4f47-ba25-c1639fe1d449.png)
+
+     
+
+
