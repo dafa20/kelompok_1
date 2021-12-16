@@ -8,18 +8,18 @@
 
 - ##### Dafa Septiandri Dwinanda P. (1202192033)
 
-###### Persoalan 
+### Persoalan 
 
-1. ###### Buat subdomain dev.vm.local dengan menggunakan ansible dengan beberapa aturan:
+1. ##### Buat subdomain dev.vm.local dengan menggunakan ansible dengan beberapa aturan:
 
    - Menggunakan Ansible
    - Menggunakan lxc yang sma dengan yang digunakan dengan vm.local
    - folder code harus berbeda dengan yang digunakan vm.local, menggunakan /
    - var/www/html/dev/{nama_app}
 
-2. ######  Mendaftarkan subdomain vm.local ke DNS
+2. #####  Mendaftarkan subdomain vm.local ke DNS
 
-###### Pemecahan Masalah
+### Pemecahan Masalah
 
 - Langkah pertama buat file direktori pada ansible untuk instalasi bind9 dan dnsutils
 
@@ -28,7 +28,7 @@
   nano sublaravel.yml 
   ```
 
-  ![1](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\1.png)
+  ![1](https://user-images.githubusercontent.com/93079538/146402547-d7263a9c-647a-48e3-a949-79002689e7e0.png)
 
   ```markdown
   ---
@@ -44,11 +44,11 @@
 
 - lakukan instalasi
 
-  ![2](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\2.png)
+  ![2](https://user-images.githubusercontent.com/93079538/146402592-3c559b74-d982-404c-ac0d-adbfa4b53b0a.png)
 
 - Langkah selanjutnya buat file baru lagi untuk konfigurasi (disini kita menggunakan file *config1.yml*)
 
-  ![12](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\12.png)
+  ![12](https://user-images.githubusercontent.com/93079538/146402633-c66e5546-9b84-469e-9d61-43533da65963.png)
 
   ```markdown
   ---
@@ -104,38 +104,38 @@
 
 - Lakukan instalasi
 
-  ![3](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\3.png)
+  ![3](https://user-images.githubusercontent.com/93079538/146402698-ced67432-5642-4fba-adf4-b27299e6b506.png)
 
   
 
 - Selanjutnya tambahkan subdomain di file *hosts* dan *lxc_landing.dev*
 
-  ![4](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\4.png)
+  ![4](https://user-images.githubusercontent.com/93079538/146402730-b9c5001b-c763-489c-98a6-874484afbfa9.png)
 
 - Lalu buka file vm.local dan edit seperti gambar berikut
 
-  ![5](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\5.png)
+  ![5](https://user-images.githubusercontent.com/93079538/146402794-7f207cbf-da56-4dbe-972f-3735a796745f.png)
 
-  ![6](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\6.png)
+  ![6](https://user-images.githubusercontent.com/93079538/146402822-7e6fec4f-28e6-41c5-bba0-d77c61c58631.png)
 
 - buka dan edit *vm.local* pada direktori */etc/nginx/sites-enabled/*
 
-  ![7](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\7.png)
+  ![7](https://user-images.githubusercontent.com/93079538/146402866-d365c3e3-4e13-44e9-be30-88eef4427625.png)
 
   
 
 - buka dan edit *vm.local* pada direktori */etc/bind/vm/*
 
-  ![8](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\8.png)
+  ![8](https://user-images.githubusercontent.com/93079538/146402906-b8d737a2-7ab8-45ea-99ac-1a68b5462e86.png)
 
 - lalu restart semua *packages*
 
-  ![9](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\9.png)
+  ![9](https://user-images.githubusercontent.com/93079538/146402938-86974247-5358-4c89-b653-4189b3840b73.png)
 
 - Kemudian buka control panel, network & setting, lalu setting manual dns server sesuai dengan IP VM kita pada menu IPv4
 
-  ![10](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\10.png)
+  ![10](https://user-images.githubusercontent.com/93079538/146402956-869c4064-4482-4aaf-85e2-4e76f24e0429.png)
 
 - Kemudian buka dev.vm.local pada browser dan selesai
 
-  ![11](C:\Users\Novandy\Downloads\SS SAS 2\modul 3\11.png)
+  ![11](https://user-images.githubusercontent.com/93079538/146402988-22bb3018-766e-4dfc-9009-20d6cd026061.png)
