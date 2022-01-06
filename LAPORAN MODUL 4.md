@@ -68,7 +68,7 @@ NOVANDY PRAKOSO 1202190057 || DAFA SEPTIANDRI 1202192033
 
   
 
-- Jalankan jmeter. Ubah jumlah utas dari akses pengguna dari 50, 100, 150
+- Jalankan jmeter ubah number of theards dari 50, 100, 150
 
   ![16](https://user-images.githubusercontent.com/93079538/148351807-8a3b9b2c-a14b-40a2-9ec2-421879807679.png)
 
